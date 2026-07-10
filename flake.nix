@@ -37,7 +37,7 @@
 			commonModules
 			# ./hardware/work-machine.nix
 		];
-      }
+      };
     };
   };
 }
