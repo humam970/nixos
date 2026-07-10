@@ -68,7 +68,9 @@
 		alejandra
 	];
 
-	services.blueman.enable = true;
+	hardware.bluetooth.enable = true;
+	services.blueman.enable   = true;
+	services.upower.enable    = true;
 
 	# Remove Bloat
 	programs.nano.enable = false;
