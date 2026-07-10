@@ -25,16 +25,14 @@
     nixosConfigurations = {
       home = lib.nixosSystem {
 		inherit system;
-        modules = [
-			commonModules
+		modules = commonModules ++ [
 			./hardware/home-machine.nix
 		];
       };
 
 	  work = lib.nixosSystem {
 		inherit system;
-        modules = [
-			commonModules
+		modules = commonModules ++ [
 			# ./hardware/work-machine.nix
 		];
       };
