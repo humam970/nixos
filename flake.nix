@@ -15,17 +15,29 @@
 	stylix,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
-	lib    = nixpkgs.lib;
+    system        = "x86_64-linux";
+	lib           = nixpkgs.lib;
+	commonModules = [
+		stylix.nixosModules.stylix
+		./configuration.nix
+	];
   in {
     nixosConfigurations = {
-      humam = lib.nixosSystem {
+      home = lib.nixosSystem {
 		inherit system;
         modules = [
-			stylix.nixosModules.stylix
-			./configuration.nix
+			commonModules
+			./hardware/home-machine.nix
 		];
       };
+
+	  work = lib.nixosSystem {
+		inherit system;
+        modules = [
+			commonModules
+			# ./hardware/work-machine.nix
+		];
+      }
     };
   };
 }

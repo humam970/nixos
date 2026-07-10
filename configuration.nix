@@ -3,7 +3,6 @@
 {
   imports =
     [
-      ./hardware/home-machine.nix
 	  ./modules
     ];
 
