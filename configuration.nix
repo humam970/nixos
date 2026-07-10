@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware/home-machine.nix
+	  ./modules
     ];
 
 	nix.settings.experimental-features = [
