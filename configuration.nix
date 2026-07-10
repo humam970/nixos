@@ -23,6 +23,7 @@
 		mako
 
 		# Cli Packages
+		ripgrep
 		fd
 		fzf
 		skim
