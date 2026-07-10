@@ -14,104 +14,45 @@
 	time.timeZone = "Asia/Baghdad";
 	i18n.defaultLocale = "en_US.UTF-8";
 
-	boot = {
-		loader = {
-			systemd-boot.enable      = true;
-			efi.canTouchEfiVariables = true;
-		};
-
-		kernelPackages = pkgs.linuxPackages_latest;
-	};
-
-	networking = {
-		hostName              = "nixos";
-		wireless.enable       = true;
-		networkmanager.enable = true;
-	};
-
-
-	services.pulseaudio.enable = false;
-	services.pipewire = {
-		enable             = true;
-		audio.enable       = true;
-		alsa.enable        = true;
-		alsa.support32Bit  = true;
-		pulse.enable       = true;
-		jack.enable        = true;
-		wireplumber.enable = true;
-	  };
-	security.rtkit.enable = true;
-
-	programs.fish.enable = true;
-	users.users."humam" = {
-		isNormalUser = true;
-		shell        = pkgs.fish;
-		description  = "humam";
-		extraGroups  = [ "networkmanager" "wheel" "docker" ];
-		packages     = with pkgs; [];
-	};
-
-	programs.hyprland = {
-		enable           = true;
-		xwayland.enable  = true;
-		portalPackage    = pkgs.xdg-desktop-portal-hyprland;
-	};
-	programs.hyprlock.enable  = true;
-	services.hypridle.enable  = true;
-	security.polkit.enable    = true;
-
-	programs.dms-shell = {
-		enable = true;
-
-		systemd = {
-			enable           = true;
-			restartIfChanged = true;
-		};
-			
-		enableVPN = true;
-	};
-  
-
 	environment.systemPackages = with pkgs; [
-		# Extra packages
-		hyprpaper
+		# Extra Packages
 		bibata-cursors
+		fastfetch
 		ashell
 		mako
 
 		# Cli Packages
 		fd
+		fzf
 		skim
 		zellij
 		git
 		stow
 		openvpn3
+		eza
 
-		# Packages
-		fastfetch
-
-		# Utility packages
+		# Utility Packages
 		pwvucontrol
 		brightnessctl
 		wl-clipboard
 
-		# TUI packages
+		# TUI Packages
 		neovim
 		yazi
 		btop
 
-		# GUI packages
+		# GUI Packages
 		nautilus
 		brave
 		ghostty
 		rofi
 
-		# Screenshot packages
+		# Screenshot Packages
 		grim
 		slurp
 		satty
 
-		# Dev packages
+		# Dev Packages
 		go
 		gopls
 		golangci-lint
@@ -126,11 +67,10 @@
 		alejandra
 	];
 
-	services.greetd = {
-		enable = true;
-		settings.default_session.command =
-		  "${pkgs.tuigreet}/bin/tuigreet --cmd start-hyprland";
-	};
+	services.blueman.enable = true;
 
-  system.stateVersion = "26.05";
+	# Remove Bloat
+	programs.nano.enable = false;
+
+	system.stateVersion = "26.05";
 }
