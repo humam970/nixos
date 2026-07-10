@@ -21,6 +21,7 @@
 		ashell
 
 		# Cli Packages
+		tree-sitter
 		bat
 		ripgrep
 		fd
