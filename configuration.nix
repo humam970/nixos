@@ -23,6 +23,7 @@
 		mako
 
 		# Cli Packages
+		bat
 		ripgrep
 		fd
 		fzf
