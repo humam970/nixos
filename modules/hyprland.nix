@@ -10,7 +10,10 @@
 	services.hypridle.enable  = true;
 	security.polkit.enable    = true;
 
-	environment.systemPackages = with pkgs; [ hyprpaper ];
+	environment.systemPackages = with pkgs; [
+		hyprpaper
+		hyprsunset
+	];
 
 	services.greetd = {
 		enable = true;

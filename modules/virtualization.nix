@@ -16,4 +16,6 @@
 		lazydocker
 		virt-manager
 	];
+
+	systemd.services.docker.wantedBy = [ ];
 }
