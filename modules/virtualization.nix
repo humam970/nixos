@@ -4,9 +4,14 @@
 	virtualisation = {
 		docker.enable = true;
 
-		libvirtd = {
-				enable = true;
-				qemu.runAsRoot = false;
+		# libvirtd = {
+		# 		enable = true;
+		# 		qemu.runAsRoot = false;
+		# };
+
+		waydroid = {
+			enable = true;
+			package = pkgs.waydroid-nftables;
 		};
 	};
 
