@@ -19,7 +19,6 @@
 		bibata-cursors
 		fastfetch
 		ashell
-		mako
 
 		# Cli Packages
 		bat
