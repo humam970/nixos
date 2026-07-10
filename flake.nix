@@ -1,13 +1,18 @@
 {
   description = "NixOS Configuration";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  };
+	inputs = {
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+		stylix = {
+			url = "github:nix-community/stylix";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+	};
 
   outputs = {
     self,
     nixpkgs,
+	stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -17,6 +22,7 @@
       humam = lib.nixosSystem {
 		inherit system;
         modules = [
+			stylix.nixosModules.stylix
 			./configuration.nix
 		];
       };
